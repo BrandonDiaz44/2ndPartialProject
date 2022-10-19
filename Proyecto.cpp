@@ -2,66 +2,10 @@
 #include<stdlib.h>
 #include<string.h>
 #include<fstream>
+#include "Respuestas.h"
+#include "Logo.h"
 
 using namespace std;
-
-void escritura()
-{
-    ofstream archivo;
-    string texto;
-
-    archivo.open("RespuestasProyecto.txt",ios::app);
-
-    if(archivo.fail())
-    {
-        cout<<"Error to create the file..."<<endl;
-    }
-    fflush(stdin);
-    cout<<"Answer:"<<endl;
-    getline(cin,texto);
-
-    archivo<<texto<<endl;
-    archivo.close();
-    
-}
-
-void lectura()
-{
-    ifstream archivo2("LogoProyecto.txt");
-    string texto2;
-
-    if(archivo2.fail())
-    {
-        cout<<"Error to create the file..."<<endl;
-    }
-
-    while(!archivo2.eof())
-    {
-        getline(archivo2,texto2);
-        cout<<texto2<<endl;
-    }
-
-    archivo2.close();
-}
-
-void lectura2()
-{
-    ifstream archivo3("RespuestasProyecto.txt");
-    string texto3;
-
-    if(archivo3.fail())
-    {
-        cout<<"Error to create the file..."<<endl;
-    }
-
-    while(!archivo3.eof())
-    {
-        getline(archivo3,texto3);
-        cout<<texto3<<endl;
-    }
-
-    archivo3.close();
-}
 
 int main()
 {
