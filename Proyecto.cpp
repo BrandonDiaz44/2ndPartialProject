@@ -4,22 +4,26 @@
 #include<fstream>
 #include "Respuestas.h"
 #include "Logo.h"
+#include "Clases.h"
+#include "Clases2.h"
+#include "Clases3.h"
+#include "Clases4.h"
+#include "Rutinas.h"
 
 using namespace std;
 
 int main()
 {
+    cout<<"\n"<<endl;
     lectura();
     char y;
     int z;
+    char a;
 
     cout<<"\n"<<endl;
-    cout<<"\n"<<endl;
-    cout<<"Are you ready to transform into a Greek god with me?"<<endl;
-    cout<<"\n"<<endl;
-    cout<<"\n"<<endl;
-    cout<<"Please, answer this questions to give you your fitness plan:"<<endl;
-    cout<<"\n"<<endl;
+    Menu2 m2("transform into a Greek god","questions to give you");
+
+    m2.principio2();
 
     cout<<"1. What is your objective, or your body to pursue?"<<endl;
     cout<<"2. Have you done any sport? If your answer is yes, tell me what kind of sports do you play?"<<endl;
@@ -133,8 +137,8 @@ int main()
     }
 
     cout<<"\n"<<endl;
-    cout<<"Do you want to see your answers?"<<endl;
-    cout<<"Type 'Y' if you want to see your answers, and 'N' if you don't want to."<<endl;
+    Menu4 m4("see your answers?","and 'N' if you don't want to.");
+    m4.mitad2();
     cout<<"\n"<<endl;
 
     do
@@ -153,7 +157,7 @@ int main()
             break;
 
             default:
-            cout<<"Please put a correct letter."<<endl;
+            cout<<"Please, put a correct letter."<<endl;
         }
     }
 
@@ -163,13 +167,105 @@ int main()
     }
 
     cout<<"\n"<<endl;
-    cout<<"Now, I have all your answers and information to creat your diet and training."<<endl;
+    Menu6 m6("diet and training.","1 is one month and 10 is ten months.");
+    m6.mensajesfunciona();
+
+    do
+    {
+        cin>>z;
+        try
+        {
+            z;
+            if(z>10)
+                throw "The value that you put is not in the legal range.";
+            else if(z<1)
+                throw "The value that you put is not in the legal range.";
+        } catch (const char *error)
+        {
+            cout<<"Error: "<<error<<endl;
+        }
+    }
+    while(z<1 || z>10);
+    {
+        cout<<"Perfect."<<endl;
+    }
+
+    Menu7 *vector2[0];
+    vector2[0] = new Menu8("?","training.");
+    vector2[0]->mensajes2();
     cout<<"\n"<<endl;
-    cout<<"From 1 to 10 tell me in how many months do you want changes? 1 is one month and 10 is ten months"<<endl;
-    cout<<"Are you ready to see your diet and training?"<<endl;
-    cout<<"\n"<<endl;
-    cout<<"Type 'Y' if you are ready, and 'N' if you are not ready to see your diet and training."<<endl;
-    cout<<"\n"<<endl;
+
+    do
+    {
+        cin>>a;
+
+        switch(a)
+    {
+        case 'Y':
+        if(z==1)
+        {
+            lectura3();
+            a = 'B';
+        }
+        else if(z==2)
+        {
+            lectura4();
+            a = 'B';
+        }
+        else if(z==3)
+        {
+            lectura5();
+            a = 'B';
+        }
+        else if(z==4)
+        {
+            lectura6();
+            a = 'B';
+        }
+        else if(z==5)
+        {
+            lectura7();
+            a = 'B';
+        }
+        else if(z==6)
+        {
+            lectura8();
+            a = 'B';
+        }
+        else if(z==7)
+        {
+            lectura9();
+            a = 'B';
+        }
+        else if(z==8)
+        {
+            lectura10();
+            a = 'B';
+        }
+        else if(z==9)
+        {
+            lectura11();
+            a = 'B';
+        }
+        else if(z==10)
+        {
+            lectura12();
+            a = 'B';
+        }
+        break;
+
+        case 'N':
+        a = 'B';
+        break;
+
+        default:
+        cout<<"Please, put a correct letter."<<endl;
+    }
+    }
+    while(a != 'B');
+    {
+        cout<<"Perfect."<<endl;
+    }
 
 
 }
